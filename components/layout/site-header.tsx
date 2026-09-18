@@ -9,6 +9,16 @@ export async function SiteHeader() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  let isAdmin = false;
+  if (user) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("is_admin")
+      .eq("id", user.id)
+      .single();
+    isAdmin = profile?.is_admin === true;
+  }
+
   return (
     <header className="border-b">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
@@ -24,6 +34,11 @@ export async function SiteHeader() {
               <Link href="/historico" className="text-muted-foreground hover:text-foreground">
                 Meu histórico
               </Link>
+              {isAdmin && (
+                <Link href="/admin" className="text-muted-foreground hover:text-foreground">
+                  Admin
+                </Link>
+              )}
               <form action={signOut}>
                 <Button type="submit" variant="ghost" size="sm">
                   Sair
