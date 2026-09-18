@@ -21,18 +21,18 @@ export async function SiteHeader() {
 
   return (
     <header className="border-b">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3">
         <Link href="/" className="font-semibold">
           Quiz Claude Code
         </Link>
-        <nav className="flex items-center gap-4 text-sm">
+        <nav className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
           <Link href="/jogar" className="text-muted-foreground hover:text-foreground">
             Jogar
           </Link>
           {user ? (
             <>
               <Link href="/historico" className="text-muted-foreground hover:text-foreground">
-                Meu histórico
+                Histórico
               </Link>
               {isAdmin && (
                 <Link href="/admin" className="text-muted-foreground hover:text-foreground">

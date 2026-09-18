@@ -14,7 +14,7 @@ export default function Home() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center gap-3">
-          <Button size="lg" className="w-full" render={<Link href="/jogar" />}>
+          <Button size="lg" className="h-12 w-full" render={<Link href="/jogar" />}>
             Jogar
           </Button>
           <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground">
